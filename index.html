@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meus Amigurumis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header, footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav a {
+      margin: 0 15px;
+      color: #555;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: #444;
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      width: calc(33% - 20px);
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .product button {
+      margin-top: 10px;
+      background: #444;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .cart {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-top: 20px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .testimonials, .tips {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form button {
+      background: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    @media (max-width: 768px) {
+      .product {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Meus Amigurumis</h1>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#dicas">Dicas</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section id="sobre">
+  <h2>Sobre mim</h2>
+  <p>Sou apaixonada por artesanato e encontrei nos amigurumis uma forma de expressar criatividade, carinho e delicadeza. Cada peça é feita à mão com amor, pensando em encantar crianças e adultos.</p>
+</section>
+
+<section id="produtos">
+  <h2>Galeria de Produtos</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200?text=Unicórnio" alt="Unicórnio">
+      <h3>Unicórnio Rosa</h3>
+      <p>R$ 80,00</p>
+      <button onclick="addToCart('Unicórnio Rosa', 80)">Adicionar ao carrinho</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200?text=Coelhinho" alt="Coelhinho">
+      <h3>Coelhinho Azul</h3>
+      <p>R$ 65,00</p>
+      <button onclick="addToCart('Coelhinho Azul', 65)">Adicionar ao carrinho</button>
+    </div>
+    <div class="product">
+      <img src="https://via.placeholder.com/300x200?text=Dinossauro" alt="Dinossauro">
+      <h3>Dinossauro Verde</h3>
+      <p>R$ 75,00</p>
+      <button onclick="addToCart('Dinossauro Verde', 75)">Adicionar ao carrinho</button>
+    </div>
+  </div>
+  <div class="cart" id="cart">
+    <h3>Seu Carrinho</h3>
+    <div id="cart-items"></div>
+    <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
+  </div>
+</section>
+
+<section id="dicas">
+  <h2>Dicas de Cuidados</h2>
+  <div class="tips">
+    <ul>
+      <li>Evite lavar os amigurumis na máquina. Prefira limpeza à mão com sabão neutro.</li>
+      <li>Deixe secar à sombra para preservar as cores e a forma.</li>
+      <li>Guarde em local seco e longe da luz solar direta.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="depoimentos">
+  <h2>Depoimentos</h2>
+  <div class="testimonials">
+    <p><em>"Amei meu unicórnio! Feito com muito capricho e chegou super rápido!"</em> — Ana Paula</p>
+    <p><em>"Minha filha dorme agarrada com o coelhinho, é muito fofo!"</em> — João Carlos</p>
+  </div>
+</section>
+
+<section id="contato">
+  <h2>Contato</h2>
+  <form onsubmit="event.preventDefault(); alert('Mensagem enviada! (formulário exemplo)');">
+    <input type="text" name="nome" placeholder="Seu nome" required>
+    <input type="email" name="email" placeholder="Seu e-mail" required>
+    <textarea name="mensagem" rows="5" placeholder="Sua mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+  <p>Siga nas redes sociais:</p>
+  <p>
+    <a href="https://instagram.com" target="_blank">Instagram</a> |
+    <a href="https://wa.me/seunumerowhatsapp" target="_blank">WhatsApp</a>
+  </p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Meus Amigurumis. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function addToCart(item, price) {
+    cart.push({ item, price });
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartItemsDiv = document.getElementById("cart-items");
+    const cartTotalSpan = document.getElementById("cart-total");
+    cartItemsDiv.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((product, index) => {
+      const div = document.createElement("div");
+      div.className = "cart-item";
+      div.innerHTML = \`
+        \${product.item} - R$ \${product.price.toFixed(2)}
+        <button onclick="removeFromCart(\${index})">x</button>
+      \`;
+      cartItemsDiv.appendChild(div);
+      total += product.price;
+    });
+
+    cartTotalSpan.textContent = total.toFixed(2);
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCart();
+  }
+</script>
+
+</body>
+</html>
